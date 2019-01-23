@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CharacterList from './Components/CharacterList';
+import { CharacterList } from './Components/CharacterList';
+import { Main } from './Components/Main';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <CharacterList/>
+        <Main/>
       </div>
     );
   }

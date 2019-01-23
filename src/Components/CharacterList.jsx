@@ -31,7 +31,6 @@ export class CharacterList extends Component {
         } else {
             return(
                 <React.Fragment>
-                <ul>
                     {characters.results.map(character => (
                         <li key={character.id}>
                             <img src={character.image} alt=''/>
@@ -43,7 +42,6 @@ export class CharacterList extends Component {
                             <hr/>
                         </li>
                         ))}
-                </ul>
                 
                 </React.Fragment>
                 );
