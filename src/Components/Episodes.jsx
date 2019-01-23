@@ -32,8 +32,6 @@ export class Episodes extends Component {
                     {episodes.results.map(episode => (
                         <li key={episode.id}>
                             <p>{episode.name}</p>
-
-                            <hr/>
                         </li>
                         ))}
                 

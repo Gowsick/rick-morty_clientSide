@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Episodes } from './Episodes';
 import { Locations } from './Locations';
+import episodeURL from './Episodes';
 
 
 export class CharacterList extends Component {
@@ -8,7 +9,7 @@ export class CharacterList extends Component {
         super(props);
         this.state = {
             characters: [],
-            isLoading: false,
+            isLoading: false
         }
     }
 
@@ -29,6 +30,7 @@ export class CharacterList extends Component {
         if (!isLoading) {
             return <div>Chill it's loading...</div>
         } else {
+            const episodeURL = `{character.episode.slice(-1)}`;
             return(
                 <React.Fragment>
                     {characters.results.map(character => (
