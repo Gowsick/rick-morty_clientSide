@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Episodes } from './Episodes';
+import { Locations } from './Locations';
 
 
 export class CharacterList extends Component {
