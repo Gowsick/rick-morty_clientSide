@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { CharacterList } from './Components/CharacterList';
 import { Main } from './Components/Main';
 
 

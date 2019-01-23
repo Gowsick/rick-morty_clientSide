@@ -8,7 +8,7 @@ export class CharacterList extends Component {
         super(props);
         this.state = {
             characters: [],
-            isLoading: false
+            isLoading: false,
         }
     }
 
@@ -38,7 +38,7 @@ export class CharacterList extends Component {
                             <p>{character.status}</p>
                             <p>{character.species}</p>
                             <p>{character.location.name}</p>
-                            <p>{character.episode.slice(-1)}</p>
+                            <Episodes/>
                             <hr/>
                         </li>
                         ))}
