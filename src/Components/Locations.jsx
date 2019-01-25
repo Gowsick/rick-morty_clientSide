@@ -1,47 +1,42 @@
 import React, { Component } from 'react';
+import fetchData from '../Helpers/Fetcher';
 
 
-export class Locations extends Component {
+export class LocationsList extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            characters: [],
-            isLoading: false
+            locations: [],
+            isLoaded: false
         }
     }
 
     componentDidMount() {
-        fetch('https://rickandmortyapi.com/api/character/')
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoading: true,
-                    characters: json
-                })
-            });
+        fetchData('location')
+            .then(res => res.data.results)
+            .then((data)=>this.setState({
+                locations: data,
+                isLoaded: true
+            }))
     }
 
     render() {
-        const { isLoading, characters } = this.state;
-
-        if (!isLoading) {
+        const { isLoaded, locations } = this.state;
+        console.log(locations);
+        if (!isLoaded) {
             return <div>Chill it's loading...</div>
         } else {
             return(
                 <React.Fragment>
-                <ul>
-                    {characters.results.map(character => (
-                        <li key={character.id}>
-                            <img src={character.image} alt=''/>
-                            <p>{character.name}</p>
-                            <p>{character.status}</p>
-                            <p>{character.species}</p>
-                            <p>{character.location.name}</p>
-                            <p>{character.episode.slice(-1)}</p>
+                    {locations.map(location => (
+                        <li key={location.id}>
+                            <p>{location.name}</p>
+                            <p>{location.type}</p>
+                            <p>{location.dimension}</p>
                             <hr/>
                         </li>
                         ))}
-                </ul>
                 
                 </React.Fragment>
                 );
@@ -49,4 +44,4 @@ export class Locations extends Component {
     }
 }
 
-export default Locations;
+export default LocationsList;

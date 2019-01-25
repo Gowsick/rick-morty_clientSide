@@ -1,37 +1,39 @@
 import React, { Component } from 'react';
+import fetchData from '../Helpers/Fetcher';
 
+export class EpisodesList extends Component {
 
-export class Episodes extends Component {
     constructor(props) {
         super(props);
         this.state = {
             episodes: [],
-            isLoading: false
+            isLoaded: false
         }
     }
 
-    fetchEpisodes(episodeURL) {
-        fetch(episodeURL)
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoading: true,
-                    episodes: json
-                })
-            });
+    componentDidMount() {
+        fetchData('episode')
+            .then(res => res.data.results)
+            .then((data)=>this.setState({
+                episodes: data,
+                isLoaded: true
+            }))
     }
 
     render() {
-        const { isLoading, episodes } = this.state;
-
-        if (!isLoading) {
+        const { isLoaded, episodes } = this.state;
+        console.log(episodes);
+        if (!isLoaded) {
             return <div>Chill it's loading...</div>
         } else {
             return(
                 <React.Fragment>
-                    {episodes.results.map(episode => (
+                    {episodes.map(episode => (
                         <li key={episode.id}>
                             <p>{episode.name}</p>
+                            <p>{episode.air_date}</p>
+                            <p>{episode.episode}</p>
+                            <hr/>
                         </li>
                         ))}
                 
@@ -41,4 +43,4 @@ export class Episodes extends Component {
     }
 }
 
-export default Episodes;
+export default EpisodesList;
