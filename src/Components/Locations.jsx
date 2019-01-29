@@ -29,14 +29,16 @@ export class LocationsList extends Component {
         } else {
             return(
                 <React.Fragment>
+                    <div className='fetchedPages'>
                     {locations.map(location => (
-                        <li key={location.id}>
+                        <div key={location.id}>
                             <p>{location.name}</p>
                             <p>{location.type}</p>
                             <p>{location.dimension}</p>
                             <hr/>
-                        </li>
+                        </div>
                         ))}
+                    </div>
                 
                 </React.Fragment>
                 );

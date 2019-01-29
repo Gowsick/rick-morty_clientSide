@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ListEpisodes } from './listEpisodes';
 import fetchData from '../Helpers/Fetcher';
+import { Episode } from './Episode';
 
 
 export class CharactersList extends Component {
@@ -35,26 +36,25 @@ export class CharactersList extends Component {
         const { isLoaded, characters } = this.state;
         console.log(this.state);
         if (!isLoaded) {
-            return <div>Chill it's loading...</div>
+            return <div>It's loading...</div>
         } else {
-            //const episodeURL = `{character.episode.slice(-1)}`;
             return(
-                <React.Fragment>
-                    <p>List</p>
+                <div className='characterList'>
+                    <ul>
                     {characters.map(character => (
                         <li key={character.id}>
                             <img src={character.image} alt=''/>
                             <p>{character.name}</p>
-                            <p>{character.status}</p>
-                            <p>{character.species}</p>
-                            <p>{character.location.name}</p>
-                            <h4>Episodes:</h4>
+                            <p>Status: <span>{character.status}</span></p>
+                            <p>Species: <span>{character.species}</span></p>
+                            <p>Location: <span>{character.location.name}</span></p>
+                            <h4>Last Episode:</h4>
                             <ListEpisodes list={character.episode.slice(-1)}/>
-                            <hr/>
                         </li>
                         ))}
+                        </ul>
                     <button onClick={()=>this._getData(this.state.nextpage)}>Load More...</button>
-                </React.Fragment>
+                </div>
                 );
         }
     }

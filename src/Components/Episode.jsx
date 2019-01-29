@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fetchData from '../Helpers/Fetcher';
-
+import { BrowserRouter as browserHistory } from "react-router-dom";
 export class Episode extends Component {
 
     constructor(props) {
@@ -25,11 +25,14 @@ export class Episode extends Component {
             return <div>Loading...</div>
         } else {
             return(
-                <React.Fragment>
-                    <p>{episode.name}</p>
-                    <p>{episode.air_date}</p>
-                    <p>{episode.episode}</p>
-                </React.Fragment>
+                <div className='fetchedEpisode'>
+                    <a href='/'>back</a>
+                    <div className='episodeWrapper'>
+                        <p>{episode.name}</p>
+                        <p>{episode.air_date}</p>
+                        <p>{episode.episode}</p>
+                    </div>
+                </div>
                 )
         }
     }

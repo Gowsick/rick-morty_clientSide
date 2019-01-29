@@ -28,14 +28,16 @@ export class EpisodesList extends Component {
         } else {
             return(
                 <React.Fragment>
+                    <div className='fetchedPages'>
                     {episodes.map(episode => (
-                        <li key={episode.id}>
+                        <div key={episode.id}>
                             <p>{episode.name}</p>
                             <p>{episode.air_date}</p>
                             <p>{episode.episode}</p>
                             <hr/>
-                        </li>
+                        </div>
                         ))}
+                        </div>
                 
                 </React.Fragment>
                 );
