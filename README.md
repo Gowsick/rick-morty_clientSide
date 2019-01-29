@@ -16,8 +16,8 @@
 >Bonus points (optional):
 
 - README.md => **YES**
-Scalability => **Not entirely**
-Click on elements / text for info on episodes, dimensions, etc. => **YES**
+- Scalability => **Not entirely**
+- Click on elements / text for info on episodes, dimensions, etc. => **YES**
 
 ### Run Project
 
