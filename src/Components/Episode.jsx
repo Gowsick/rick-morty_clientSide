@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import fetchData from '../Helpers/Fetcher';
-import { BrowserRouter as browserHistory } from "react-router-dom";
 export class Episode extends Component {
 
     constructor(props) {

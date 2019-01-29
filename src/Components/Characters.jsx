@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ListEpisodes } from './listEpisodes';
 import fetchData from '../Helpers/Fetcher';
-import { Episode } from './Episode';
 
 
 export class CharactersList extends Component {
