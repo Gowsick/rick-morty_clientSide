@@ -9,9 +9,6 @@ import { Header } from './common/Header';
 export class Main extends Component {
     
     render() {
-        const Characters = () => <h5>List Characters</h5>;
-        const Locations = () => <h5>List Locations</h5>;
-        const Episodes = () => <h5>List Episodes</h5>;
             return(
                 <Router>
                     <div>

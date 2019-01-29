@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eCurring - Technical Assignment
 
-## Available Scripts
+### Description of the assignment:
 
-In the project directory, you can run:
+>Create an overview of all the characters of the TV show Rick & Morty that shows the following details:
 
-### `npm start`
+- Image
+- Name
+- Status
+- Species 
+- Last location
+- Last dimension
+- Last episode (number and name)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+>You can use the following API: https://rickandmortyapi.com/
+>Bonus points (optional):
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- README.md => **YES**
+Scalability => **Not entirely**
+Click on elements / text for info on episodes, dimensions, etc. => **YES**
 
-### `npm test`
+### Run Project
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+$ git clone git@github.com:Marfru/ricky-morty.git
+$ cd ricky-morty
+$ npm i
+$ npm start
+```
 
-### `npm run build`
+### Packages used
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Package | Url |
+| ------ | ------ |
+| normalize.css | https://www.npmjs.com/package/normalize.css |
+| react-social-icons | https://www.npmjs.com/package/react-social-icons |
+| axios | https://www.npmjs.com/package/axios |
+| react-router-dom | https://www.npmjs.com/package/react-router-dom |
+| sass-loader | https://www.npmjs.com/package/sass-loader |
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Approach
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+What the user would see once entered the application, would be an ordered list of characters from Rick and Morty. It only loads the 20 first characters.
 
-### `npm run eject`
+I have added a **Load More** button at the end to load the next page, which will load the next 20 characters.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Each character is a list **(ul li)**, and inside each character block I render the name, status, species, last known location and the last episode where they appeared, which is a clickable button that will take you to a new page where it will render the information of that episode (Title, Air Date, Season and Episode).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The plan for the episode details was to make it a modal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+At the left side of the screen, there's a fixed menu, which takes you to the main screen (Characters), but also to Locations page (information about locations) and Episodes screen (information about all episodes).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I have used Router and Links from react-router-dom to determine these pages. Locations and Episodes aren't styled.
 
-## Learn More
+### Helper:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Fetcher.js** => Using axios, I fetched the data from the API using endpoints, to be able to render on single components data from /characters, /locations or /episodes. Also to load the next 20 characters (character/?page=2).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Components:
 
-### Code Splitting
+- **Main.jsx** => This is the main template. Here I render the header and all the rest. It includes the Route paths and links to the pages as well.
+- **Characters.jsx** => Rendering the the characters and it's information such as: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```bash
+{character.image}
+{character.name}
+{character.status}
+{character.species}
+{character.location.name}
+```
 
-### Analyzing the Bundle Size
+In the last episode, I added the component **< ListEpisodes >** which will take you to a new screen where the data from that single episode will load.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Also the "Load More" button component is stated here, which will render the next page of characters.
 
-### Making a Progressive Web App
+- **loadPages.jsx** => The famous 'Load More' used on the **Characters.jsx** component.
+- **Episode.jsx** => Information of single episodes (Last episodes of characters)
+- **Episodes.jsx** => This renders all the episodes. Didnt add the pages though. (Load More). Fetched data thanks to the imported helper (axios).
+- **Locations.jsx** => This renders the locations, fetched data thanks to the helper.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Common Components:
 
-### Advanced Configuration
+- **Social.jsx** => basically just renders social media icons using the NPM package from react-social-icons.
+- **Header.jsx** => The menu and Links are located in here. Also the "logo" and the non-working (just a placeholder) search bar.
+- **Modal.jsx** => Ready to use but not implemented.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Styling & SaSS
 
-### Deployment
+- Located in the /Stylesheets/ folder, not very organized though. All the .scss files are imported in the **import.scss**, which later is imported in the index.js.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Also a small .scss file which contains variables **(_vars.scss)**.
 
-### `npm run build` fails to minify
+But in general, the syling needs a lot more work.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Design
+
+Lack of time, but I did what I could. The main page is pretty user-friendly in my opinion.
+
+### Responsiveness
+
+Not worked on this much, just a bit but I added some media queries.
+
+
