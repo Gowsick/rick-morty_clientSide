@@ -13,6 +13,7 @@
 - Last episode (number and name)
 
 >You can use the following API: https://rickandmortyapi.com/
+
 >Bonus points (optional):
 
 - README.md => **YES**
