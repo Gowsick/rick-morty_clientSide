@@ -1,5 +1,3 @@
-# eCurring - Technical Assignment
-
 ### Description of the assignment:
 
 >Create an overview of all the characters of the TV show Rick & Morty that shows the following details:
