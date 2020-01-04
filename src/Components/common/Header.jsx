@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Social } from '../common/Social';
 
 export class Header extends Component {
     
@@ -17,15 +16,8 @@ export class Header extends Component {
                             <li>
                                 <Link to="/">Characters</Link>
                             </li>
-                            <li>
-                                <Link to="/locations/">Locations</Link>
-                            </li>
-                            <li>
-                                <Link to="/episodes/">Episodes</Link>
-                            </li>
                         </ul>
                     </nav>
-                    <Social/>
             </div>
         );
     }

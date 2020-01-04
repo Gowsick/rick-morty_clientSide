@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ListEpisodes } from './listEpisodes';
 import fetchData from '../Helpers/Fetcher';
 
 
@@ -47,8 +46,6 @@ export class CharactersList extends Component {
                             <p>Status: <span>{character.status}</span></p>
                             <p>Species: <span>{character.species}</span></p>
                             <p>Location: <span>{character.location.name}</span></p>
-                            <h4>Last Episode:</h4>
-                            <ListEpisodes list={character.episode.slice(-1)}/>
                         </li>
                         ))}
                         </ul>
